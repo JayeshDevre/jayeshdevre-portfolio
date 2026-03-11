@@ -1,0 +1,250 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--header-height);
+}
+
+.content {
+  position: relative;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Photo */
+.photoContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.photoPlaceholder {
+  width: 320px;
+  height: 420px;
+  background: linear-gradient(145deg, #c8c8c8, #d4d4d4);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photoInitials {
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(28, 29, 32, 0.12);
+  letter-spacing: -0.05em;
+}
+
+/* Right info */
+.info {
+  position: absolute;
+  right: clamp(2rem, 15vw, 10rem);
+  bottom: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  z-index: 2;
+}
+
+.arrow {
+  font-size: 2.2rem;
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+.roleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.roleAnimatedWrapper {
+  height: clamp(3rem, 7vw, 4rem);
+  position: relative;
+  overflow: hidden;
+  width: 450px;
+}
+
+.roleTitle {
+  position: absolute;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.roleSubtitle {
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Location badge */
+.locationBadge {
+  position: absolute;
+  left: 0;
+  top: 44%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* Increase gap to push globe right */
+  background: rgba(28, 29, 32, 0.9); /* Slightly transparent */
+  backdrop-filter: blur(8px); /* Add a slight blur to the transparency */
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-light);
+  padding: 1.5rem 2.5rem 1.5rem 3rem; /* Increase padding to stretch it further right */
+  border-radius: 0 50px 50px 0;
+  z-index: 3;
+}
+
+.locationText {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.globeWrapper {
+  width: 70px; /* Increased from 60px */
+  height: 70px; /* Increased from 60px */
+  border-radius: 50%;
+  background: #999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem; /* Increased to match larger globe */
+  color: var(--text-light);
+}
+
+.revolvingGlobe {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bottom Information Bar */
+.bottomBar {
+  width: 100%;
+  background-color: #737373;
+  color: #ffffff;
+  padding: 1.2rem var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 10;
+  font-weight: 500;
+}
+
+.barCenter {
+  font-weight: 700;
+  text-align: center;
+  flex: 1;
+}
+
+.barLeft,
+.barRight {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .photoPlaceholder {
+    width: 220px;
+    height: 300px;
+  }
+
+  .photoInitials {
+    font-size: 3.5rem;
+  }
+
+  .info {
+    position: absolute;
+    right: auto;
+    left: 1.5rem;
+    bottom: 120px;
+    top: auto;
+    transform: none;
+    margin-top: 0;
+    text-align: left;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .roleAnimatedWrapper {
+    width: 250px;
+  }
+
+  .content {
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+
+  .locationBadge {
+    position: absolute;
+    left: auto;
+    right: 1.5rem;
+    bottom: 120px;
+    top: auto;
+    transform: none;
+    margin: 0;
+    padding: 0.5rem;
+    background: transparent;
+    border-radius: 50px;
+    transition: background 0.3s ease, padding 0.3s ease;
+  }
+
+  .locationBadge:hover {
+    background: var(--bg-dark);
+    padding: 1rem 1rem 1rem 1.5rem;
+  }
+
+  .locationText {
+    display: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .locationBadge:hover .locationText {
+    display: flex;
+  }
+
+  .globeWrapper {
+    background: transparent;
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .locationBadge:hover .globeWrapper {
+    background: #999999;
+    color: var(--text-light);
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    font-size: 0.75rem;
+  }
+}
