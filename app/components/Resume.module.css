@@ -1,4 +1,8 @@
 .resume {
+  min-height: 100vh;                 /* full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;           /* vertically center timeline + header */
   padding: var(--space-xl) 0;
   background-color: var(--bg);
 }
@@ -110,6 +114,15 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .resume {
+    padding: var(--space-lg) 0;
+  }
+
+  .resume .container {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+
   .item {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -119,5 +132,29 @@
 
   .timeline {
     gap: var(--space-md);
+  }
+
+  .company {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .downloadBtn {
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume {
+    padding: var(--space-md) 0;
+  }
+
+  .resume .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .company {
+    font-size: 1.35rem;
   }
 }

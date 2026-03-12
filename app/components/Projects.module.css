@@ -1,4 +1,8 @@
 .projects {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: var(--space-xl) 0;
 }
 
@@ -160,6 +164,15 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .projects {
+    padding: var(--space-lg) 0;
+  }
+
+  .projects .container {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+
   .row {
     flex-direction: column;
     align-items: flex-start;
@@ -171,6 +184,10 @@
     gap: 1rem;
   }
 
+  .projectTitle {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
   .hoverOverlay {
     position: relative;
     transform: none;
@@ -179,5 +196,41 @@
     padding: 0;
     font-size: 0.85rem;
     display: block;
+  }
+
+  .moreWork {
+    padding-top: var(--space-md);
+  }
+
+  .moreBtn {
+    padding: 0.875rem 2rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: var(--space-md) 0;
+  }
+
+  .projects .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .row {
+    padding: var(--space-sm) 0;
+  }
+
+  .projectTitle {
+    font-size: 1.35rem;
+  }
+
+  .category,
+  .year {
+    font-size: 0.8rem;
   }
 }
