@@ -32,6 +32,7 @@ export default function About() {
   const btnRef = useRef<HTMLButtonElement>(null);
   const [showBioModal, setShowBioModal] = useState(false);
   const [magneticPosition, setMagneticPosition] = useState({ x: 0, y: 0 });
+  const [socialMagnet, setSocialMagnet] = useState<Record<string, { x: number; y: number }>>({});
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const handleMagneticMouse = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -47,6 +48,20 @@ export default function About() {
 
   const handleMagneticReset = () => {
     setMagneticPosition({ x: 0, y: 0 });
+  };
+
+  const handleSocialMagneticMouse = (label: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const { clientX, clientY } = e;
+    const { width, height, left, top } = e.currentTarget.getBoundingClientRect();
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    const moveX = (clientX - centerX) * 0.25;
+    const moveY = (clientY - centerY) * 0.25;
+    setSocialMagnet((prev) => ({ ...prev, [label]: { x: moveX, y: moveY } }));
+  };
+
+  const handleSocialMagneticReset = (label: string) => () => {
+    setSocialMagnet((prev) => ({ ...prev, [label]: { x: 0, y: 0 } }));
   };
 
   const statement =
@@ -93,16 +108,20 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               {socialLinks.map((link) => (
-                <a
+                <motion.a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
+                  animate={{ x: socialMagnet[link.label]?.x ?? 0, y: socialMagnet[link.label]?.y ?? 0 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 18, mass: 0.12 }}
+                  onMouseMove={handleSocialMagneticMouse(link.label)}
+                  onMouseLeave={handleSocialMagneticReset(link.label)}
                 >
                   <link.icon className={styles.socialBtnIcon} aria-hidden />
                   <span>{link.label}</span>
-                </a>
+                </motion.a>
               ))}
             </motion.div>
           </div>
