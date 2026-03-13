@@ -269,25 +269,28 @@
     font-size: 0.9rem;
   }
 
+  /* Stack timeline vertically on mobile: date above card */
   .timelineLine {
-    left: 18px;
+    display: none;
   }
 
   .timelineRow {
-    grid-template-columns: auto 1fr;
-    gap: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
     padding: var(--space-sm) 0;
   }
 
-  .timelineSide {
-    grid-column: 2 / 3;
-    justify-content: flex-start;
-  }
-
   .timelineCenter {
-    grid-column: 1 / 2;
+    order: 0;
     align-items: flex-start;
     min-width: auto;
+    margin-bottom: 0.25rem;
+  }
+
+  .timelineSide {
+    order: 1;
+    justify-content: flex-start;
   }
 
   .timelineDate {

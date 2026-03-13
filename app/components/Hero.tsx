@@ -85,7 +85,6 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.9 }}
       >
         <div className={styles.barCenter}>FULL STACK | DATA & AI | CLOUD / DEVOPS | DISTRIBUTED SYSTEMS</div>
-        <div className={styles.barRight}>MS-IT - ASU - 4.0 GPA</div>
       </motion.div>
     </section >
   );
