@@ -72,7 +72,7 @@ const projects: Project[] = [
     helps: "Shows how non-blocking endpoints improve throughput and reduce latency for CRUD and file I/O.",
     impact:
       "Achieved 95.6% faster CRUD workflows and 85% faster file read/write in benchmarks vs blocking approach.",
-    tech: ["Java", "Spring Boot", "MongoDB", "CompletableFuture", "Maven"],
+    tech: ["Java", "Spring Boot", "MongoDB", "Maven", "CompletableFuture"],
     link: "https://github.com/JayeshDevre/ThreadBoost",
   },
   {

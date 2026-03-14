@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-xl) 0;
+  padding: var(--space-lg) 0;
 }
 
 .container {
@@ -14,7 +14,7 @@
 }
 
 .header {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
   text-align: center;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .subtitle {
-  margin: 0.5rem 0 0;
+  margin: 0.4rem 0 0;
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.5;
@@ -186,7 +186,7 @@
 
 .cardFooter {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   margin-top: auto;
@@ -314,14 +314,47 @@
   .projects .container {
     padding-left: var(--space-sm);
     padding-right: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    width: 100%;
+    text-align: center;
   }
 
   .grid {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .details {
     grid-template-columns: 1fr;
+  }
+
+  /* Center all names and content on card front only (mobile) */
+  .cardFront {
+    text-align: center;
+  }
+
+  .cardFront .badgeRow {
+    justify-content: center;
+  }
+
+  .cardFront .cardTop {
+    align-items: center;
+  }
+
+  .cardFront .techRow {
+    justify-content: center;
+  }
+
+  .cardFront .cardFooter {
+    justify-content: center;
   }
 }
 
@@ -329,5 +362,9 @@
   .projects .container {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .grid {
+    max-width: 100%;
   }
 }
