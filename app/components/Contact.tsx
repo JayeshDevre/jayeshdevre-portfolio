@@ -1,13 +1,27 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import styles from "./Contact.module.css";
+
+function formatLocalTime() {
+  const now = new Date();
+  const offsetMinutes = -now.getTimezoneOffset();
+  const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+  const sign = offsetMinutes >= 0 ? "+" : "-";
+  const gmt = `GMT${sign}${offsetHours}`;
+  return now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true }) + " " + gmt;
+}
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [ctaMagnet, setCtaMagnet] = useState({ x: 0, y: 0 });
+  const [localTime, setLocalTime] = useState(formatLocalTime);
+  useEffect(() => {
+    const t = setInterval(() => setLocalTime(formatLocalTime()), 1000);
+    return () => clearInterval(t);
+  }, []);
 
   const handleCtaMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e;
@@ -20,8 +34,6 @@ export default function Contact() {
   };
 
   const handleCtaMouseLeave = () => setCtaMagnet({ x: 0, y: 0 });
-
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.contact} id="contact" ref={ref}>
@@ -98,43 +110,42 @@ export default function Contact() {
           <a href="mailto:jdevre@asu.edu" className={styles.pillBtn}>
             jdevre@asu.edu
           </a>
-          <a
-            href="https://linkedin.com/in/jayesh-devre"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.pillBtn}
-          >
-            LinkedIn
+          <a href="tel:+16024030669" className={styles.pillBtn}>
+            +1 6024030669
           </a>
         </motion.div>
+      </div>
 
-        {/* Bottom footer */}
-        <motion.div
-          className={styles.bottom}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <div className={styles.bottomCol}>
-            <span className={styles.bottomLabel}>VERSION</span>
-            <span className={styles.bottomText}>{currentYear} © Edition</span>
+      {/* Full-width footer bar at bottom of page */}
+      <motion.div
+        className={styles.footerBar}
+        role="contentinfo"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <div className={styles.footerInner}>
+          <div className={styles.footerLeft}>
+            <div className={styles.bottomCol}>
+              <span className={styles.bottomLabel}>VERSION</span>
+              <span className={styles.bottomText}>Jayesh © 2026</span>
+            </div>
+            <div className={styles.bottomCol}>
+              <span className={styles.bottomLabel}>LOCAL TIME</span>
+              <span className={styles.bottomText}>{localTime}</span>
+            </div>
           </div>
-
-          <div className={styles.bottomCol}>
-            <span className={styles.bottomLabel}>LOCAL TIME</span>
-            <span className={styles.bottomText}>Based in Tempe, AZ</span>
-          </div>
-
           <div className={styles.bottomColSocials}>
             <span className={styles.bottomLabel}>SOCIALS</span>
             <div className={styles.socialLinks}>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
               <a href="https://linkedin.com/in/jayesh-devre" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://github.com/JayeshDevre" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a href="https://leetcode.com/u/Jayesh_Devre/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+              <a href="https://github.com/JayeshDevre" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </footer>
   );
 }
