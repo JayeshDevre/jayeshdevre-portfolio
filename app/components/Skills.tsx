@@ -6,20 +6,20 @@ import styles from "./Skills.module.css";
 
 const skillsData = [
   {
-    category: "Backend Systems",
-    items: ["Java", "Spring Boot", "Multithreading", "Concurrency", "Node.js", "System Design"],
+    category: "Backend & APIs",
+    items: ["Java", "Spring Boot", "Node.js", "Python", ".NET", "System Design", "REST", "WebSockets"],
   },
   {
     category: "Cloud & DevOps",
-    items: ["AWS", "Docker", "Kubernetes", "Kafka", "Azure", "CI/CD"],
+    items: ["AWS", "Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Azure Pipelines", "Terraform"],
   },
   {
-    category: "Languages & DB",
-    items: ["Python", "Go", "C/C++", "JavaScript", "PostgreSQL", "MongoDB"],
+    category: "Data & ML",
+    items: ["PostgreSQL", "MongoDB", "Redis", "PySpark", "XGBoost", "SageMaker", "TensorFlow", "Scikit-learn"],
   },
   {
-    category: "AI / ML",
-    items: ["TensorFlow", "PyTorch", "AWS Bedrock", "Gemini API", "Scikit-learn"],
+    category: "Frontend & Tools",
+    items: ["Next.js", "TypeScript", "React", "Framer Motion", "Grafana", "Prometheus"],
   },
 ];
 
