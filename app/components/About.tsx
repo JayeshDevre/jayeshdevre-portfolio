@@ -115,6 +115,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
+                  data-social={link.label.toLowerCase()}
                   animate={{ x: socialMagnet[link.label]?.x ?? 0, y: socialMagnet[link.label]?.y ?? 0 }}
                   transition={{ type: "spring", stiffness: 220, damping: 18, mass: 0.12 }}
                   onMouseMove={handleSocialMagneticMouse(link.label)}
