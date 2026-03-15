@@ -211,14 +211,33 @@
   transform: translateY(-1px);
 }
 
+.cardFrontBottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: auto;
+  flex-shrink: 0;
+  padding-top: 0.75rem;
+  gap: 0.75rem;
+}
+
+.cardFrontBottomSpacer {
+  flex: 1;
+}
+
+.cardFrontHintWrap {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .cardFooter {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: auto;
   flex-shrink: 0;
-  padding-top: 1rem;
+  padding-top: 0;
 }
 
 .viewLink {
@@ -328,12 +347,11 @@
   color: var(--text-primary);
 }
 
-/* Flip hint on front — original position below footer */
+/* Flip hint on front — same row as View project button */
 .cardFrontHint {
   font-size: 0.72rem;
   color: var(--text-muted);
-  margin-top: auto;
-  padding-top: 0.35rem;
+  margin: 0;
   flex-shrink: 0;
 }
 

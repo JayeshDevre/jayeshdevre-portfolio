@@ -352,6 +352,20 @@
     box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
   }
 
+  /* Dropdown button below role on mobile so it doesn't cover position name */
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+
+  .expandBtn {
+    position: static;
+    align-self: center;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
   .downloadBtn {
     padding: 1rem 2rem;
     font-size: 0.95rem;

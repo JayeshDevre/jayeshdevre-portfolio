@@ -37,7 +37,7 @@ const projects: Project[] = [
     id: "therapyai",
     title: "TherapyAI",
     category: "AI Therapy Assistant",
-    date: "October 2024",
+    date: "2025",
     summary:
       "Privacy‑focused therapy chat application with crisis detection, conversation memory, and browser‑based TTS.",
     importance: "Demonstrates ability to apply LLMs safely in a sensitive domain with guardrails.",
@@ -65,7 +65,7 @@ const projects: Project[] = [
     id: "threadboost",
     title: "ThreadBoost",
     category: "Async Microservice",
-    date: "2024",
+    date: "2026",
     summary:
       "Spring Boot microservice comparing blocking vs non-blocking APIs using CompletableFuture and @Async with custom thread pools.",
     importance: "Demonstrates practical async programming in Spring Boot and measurable performance gains.",
@@ -79,7 +79,7 @@ const projects: Project[] = [
     id: "heart-attack-prediction",
     title: "Heart Attack Prediction System",
     category: "ML & Cloud Pipeline",
-    date: "2024",
+    date: "2025",
     summary:
       "End-to-end ML pipeline for heart attack risk prediction using AWS EMR, SageMaker, Lambda, Athena, and SNS alerts.",
     importance: "Shows building a full ML pipeline on AWS: data processing, model training, inference, and analytics.",
@@ -215,21 +215,26 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    <div className={styles.cardFooter}>
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.viewLink}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <span>View project</span>
-                          <FiArrowUpRight className={styles.viewIcon} />
-                        </a>
-                      )}
+                    <div className={styles.cardFrontBottom}>
+                      <div className={styles.cardFrontBottomSpacer} aria-hidden="true" />
+                      <div className={styles.cardFooter}>
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.viewLink}
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>View project</span>
+                            <FiArrowUpRight className={styles.viewIcon} />
+                          </a>
+                        )}
+                      </div>
+                      <div className={styles.cardFrontHintWrap}>
+                        <p className={styles.cardFrontHint}>Click to flip</p>
+                      </div>
                     </div>
-                    <p className={styles.cardFrontHint}>Click to flip</p>
                   </div>
 
                   {/* Back: category, date, then Skills used / Problem solved / Impact */}

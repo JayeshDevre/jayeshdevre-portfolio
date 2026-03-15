@@ -1,5 +1,7 @@
 # Jayesh Devre — Portfolio
 
+**Live site:** [jayeshdevre-portfolio.vercel.app](https://jayeshdevre-portfolio.vercel.app/)
+
 Clean design and modern tech. This site is how I showcase what I build and how I think.
 
 Built with **Next.js 15**, **TypeScript**, and **CSS Modules** for a fast, readable codebase. Animations and interactivity are handled with **Framer Motion**. The result is a minimal, responsive portfolio that puts the work—and the craft—front and center.
