@@ -123,6 +123,7 @@
   background: var(--bg-elevated);
   transform: rotateY(180deg);
   transition: box-shadow 0.25s ease;
+  padding-top: 1.5rem;
 }
 
 .cardWrapper:hover .cardBack {
@@ -135,6 +136,7 @@
   gap: 0.35rem;
   min-height: 0;
   flex: 1 1 auto;
+  
 }
 
 .badgeRow {
@@ -181,6 +183,7 @@
 }
 
 .techRow {
+  margin-top: 1rem; 
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -215,7 +218,7 @@
   gap: 1rem;
   margin-top: auto;
   flex-shrink: 0;
-  padding-top: 0.25rem;
+  padding-top: 1rem;
 }
 
 .viewLink {
@@ -300,26 +303,33 @@
 }
 
 .impactList {
-  margin: 0;
-  padding-left: 1rem;
-  font-size: 0.82rem;
-  line-height: 1.5;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.65;
   color: var(--text-secondary);
   flex: 1 1 auto;
   min-height: 0;
+  list-style-type: disc;
+  list-style-position: outside;
 }
 
-.impactList li + li {
-  margin-top: 0.3rem;
+.impactList li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.25rem;
+}
+
+.impactList li:last-child {
+  margin-bottom: 0;
 }
 
 .impactLabel {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
-/* Flip hint on back */
-.cardBackHint {
+/* Flip hint on front — original position below footer */
+.cardFrontHint {
   font-size: 0.72rem;
   color: var(--text-muted);
   margin-top: auto;

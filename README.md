@@ -1,29 +1,21 @@
-# Jayesh Devre Portfolio
+# Jayesh Devre — Portfolio
 
-A minimalist, high-end portfolio built for performance, aesthetics, and smooth interactivity.
+Clean design and modern tech. This site is how I showcase what I build and how I think.
 
-> [!NOTE]
-> This project is currently a **work in progress**. Sections are being updated and refined iteratively.
+Built with **Next.js 15**, **TypeScript**, and **CSS Modules** for a fast, readable codebase. Animations and interactivity are handled with **Framer Motion**. The result is a minimal, responsive portfolio that puts the work—and the craft—front and center.
 
-## 🚀 Features
+## Tech Stack
 
-- **Technologies**: Next.js 15 (App Router), TypeScript, Vanilla CSS Modules.
-- **Magnetic Interactivity**: Magnetic navbar links and interactive dot animations using Framer Motion.
-- **Premium Hero**: Rotating job titles and a custom revolving globe location badge.
-- **Responsive**: Fully optimized for both desktop and mobile experiences.
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js
-- **Animation**: Framer Motion + GSAP
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
 - **Styling**: CSS Modules
+- **Animation**: Framer Motion
 
-## 🏁 Getting Started
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the project.
-
+Open [http://localhost:3000](http://localhost:3000).

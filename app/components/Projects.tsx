@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import styles from "./Projects.module.css";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -26,7 +26,7 @@ const projects: Project[] = [
     date: "2024",
     summary:
       "DevOps-focused project: multi-service voting app with Docker, Kubernetes, and full CI/CD via GitHub Actions and Azure Pipelines.",
-    importance: "Emphasizes DevOps—containerization, orchestration (Docker Compose, Swarm, K8s), and automated build/deploy pipelines.",
+    importance: "Emphasizes DevOps - containerization, orchestration (Docker Compose, Swarm, K8s), and automated build/deploy pipelines.",
     helps: "Showcases production-style deployment and CI/CD for polyglot services (Python, .NET 7, Node.js) with Redis and Postgres.",
     impact:
       "Demonstrates end-to-end DevOps: Docker images, K8s specs, path-based CI builds, and multi-platform image pushes (GitHub Actions, Azure Pipelines).",
@@ -115,6 +115,16 @@ export default function Projects() {
     setOpenProjectId((current) => (current === id ? null : id));
   };
 
+  useEffect(() => {
+    if (openProjectId == null) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest("[data-project-card]")) setOpenProjectId(null);
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [openProjectId]);
+
   return (
     <section className={styles.projects} id="work" ref={ref}>
       <div className={styles.gridBg} aria-hidden="true" />
@@ -127,7 +137,7 @@ export default function Projects() {
           transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className={styles.title}>
-            Work
+            Projects
             <span className={styles.titleAccent} aria-hidden="true" />
           </h2>
           <p className={styles.subtitle}>
@@ -159,11 +169,17 @@ export default function Projects() {
               setCardMagnet((prev) => ({ ...prev, [project.id]: { x: 0, y: 0 } }));
             };
 
+            const handleWrapperMouseLeave = () => {
+              if (isFlipped) setOpenProjectId(null);
+            };
+
             return (
               <div
                 key={project.id}
                 className={styles.cardWrapper}
+                data-project-card
                 onClick={() => toggleProject(project.id)}
+                onMouseLeave={handleWrapperMouseLeave}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
@@ -213,6 +229,7 @@ export default function Projects() {
                         </a>
                       )}
                     </div>
+                    <p className={styles.cardFrontHint}>Click to flip</p>
                   </div>
 
                   {/* Back: category, date, then Skills used / Problem solved / Impact */}
@@ -235,7 +252,6 @@ export default function Projects() {
                         {project.impact}
                       </li>
                     </ul>
-                    <p className={styles.cardBackHint}>Click to flip back</p>
                   </div>
                 </div>
                 </motion.div>

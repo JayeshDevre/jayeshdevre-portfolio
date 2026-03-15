@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, Fragment } from "react";
+import { useRef, useState, useEffect, Fragment } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import styles from "./About.module.css";
 import { FiGithub } from "react-icons/fi";
@@ -28,12 +28,33 @@ const education = [
 ];
 
 export default function About() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const [showBioModal, setShowBioModal] = useState(false);
   const [magneticPosition, setMagneticPosition] = useState({ x: 0, y: 0 });
   const [socialMagnet, setSocialMagnet] = useState<Record<string, { x: number; y: number }>>({});
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    const handleHashChange = () => setShowBioModal(false);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!showBioModal || !ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const sectionBottom = rect.bottom;
+      const sectionTop = rect.top;
+      if (sectionBottom < 0 || sectionTop > viewportHeight * 0.5) {
+        setShowBioModal(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showBioModal]);
 
   const handleMagneticMouse = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!btnRef.current) return;
