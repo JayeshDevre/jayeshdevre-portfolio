@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   padding: var(--space-xl) 0;
-  background-color: var(--bg);
+  background-color: #F5F5FA;
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(69, 92, 233, 0.06), transparent),
     radial-gradient(ellipse 60% 40% at 100% 50%, rgba(69, 92, 233, 0.04), transparent),

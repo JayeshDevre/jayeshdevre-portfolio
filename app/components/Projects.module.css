@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   padding: var(--space-lg) 0;
-  background-color: var(--bg);
+  background-color: #F4F6FA;
 }
 
 /* Subtle grid background, consistent with Hero */

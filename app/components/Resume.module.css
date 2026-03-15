@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   padding: var(--space-xl) 0;
-  background-color: var(--bg);
+  background-color: #F6F4F9;
 }
 
 /* Subtle grid background, consistent with other sections */
