@@ -6,10 +6,16 @@
   z-index: 100;
   padding: 1.25rem 2rem;
   transition: var(--transition-smooth);
+  background: rgba(225, 225, 225, 0.82);
+  background: var(--bg-header);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .header.scrolled {
-  background: rgba(225, 225, 225, 0.85);
+  background: rgba(225, 225, 225, 0.92);
+  background: var(--bg-header-scrolled);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 1rem 2rem;

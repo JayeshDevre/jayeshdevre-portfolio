@@ -6,12 +6,16 @@
 
 /* ---------- Design Tokens ---------- */
 :root {
-  --bg: #E1E1E1;
+  /* Clean, light background — use across all sections */
+  --bg: #F8F8F8;
   --bg-dark: #1C1D20;
-  --bg-elevated: #f3f3f3;
-  --bg-soft: #f8f8f8;
+  --bg-elevated: #FFFFFF;
+  --bg-soft: #F0F0F0;
+  /* Navbar follows --bg with transparency */
+  --bg-header: color-mix(in srgb, var(--bg) 82%, transparent);
+  --bg-header-scrolled: color-mix(in srgb, var(--bg) 92%, transparent);
 
-  --text-primary: #1C1D20;
+  --text-primary: #333333;
   --text-secondary: #555555;
   --text-muted: #999999;
   --text-light: #FFFFFF;
@@ -19,9 +23,14 @@
   --accent: #455CE9;
   --accent-soft: rgba(69, 92, 233, 0.12);
   --accent-hover: #3a4fd4;
-  --border: #C0C0C0;
+  /* Elegant purple–blue gradient (Resume button, section underlines) */
+  --gradient-accent: linear-gradient(to right, #C8A2C8, #ADD8E6);
+  /* Soft card hover — pastel purple / blue */
+  --gradient-card: linear-gradient(135deg, #e8e4f4 0%, #e0f2f7 50%, #f0eaf8 100%);
+  --gradient-card-shadow: rgba(200, 162, 200, 0.2);
+  --border: #E0E0E0;
   --border-subtle: rgba(0, 0, 0, 0.06);
-  --border-strong: rgba(0, 0, 0, 0.16);
+  --border-strong: rgba(0, 0, 0, 0.12);
 
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -67,6 +76,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {

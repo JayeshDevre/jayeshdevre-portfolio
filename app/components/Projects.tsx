@@ -126,7 +126,10 @@ export default function Projects() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
-          <h2 className={styles.title}>Work</h2>
+          <h2 className={styles.title}>
+            Work
+            <span className={styles.titleAccent} aria-hidden="true" />
+          </h2>
           <p className={styles.subtitle}>
             A snapshot of systems I&apos;ve shipped across backend, data, cloud, and AI.
           </p>

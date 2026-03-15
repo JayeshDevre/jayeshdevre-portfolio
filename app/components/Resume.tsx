@@ -91,6 +91,7 @@ export default function Resume() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [cardMagnet, setCardMagnet] = useState<Record<number, { x: number; y: number }>>({});
+  const [cardHoverPos, setCardHoverPos] = useState<Record<number, { x: number; y: number }>>({});
 
   const toggleExpanded = (index: number) => {
     setExpandedIndex((prev) => (prev === index ? null : index));
@@ -108,6 +109,7 @@ export default function Resume() {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             Experience
+            <span className={styles.titleAccent} aria-hidden="true" />
           </motion.h2>
 
           <motion.div
@@ -131,18 +133,28 @@ export default function Resume() {
 
             const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
               const { clientX, clientY } = e;
-              const { width, height, left, top } = e.currentTarget.getBoundingClientRect();
+              const rect = e.currentTarget.getBoundingClientRect();
+              const { width, height, left, top } = rect;
               const centerX = left + width / 2;
               const centerY = top + height / 2;
               const moveX = Math.round((clientX - centerX) * 0.07);
               const moveY = Math.round((clientY - centerY) * 0.07);
               setCardMagnet((prev) => ({ ...prev, [index]: { x: moveX, y: moveY } }));
+              const x = ((clientX - left) / width) * 100;
+              const y = ((clientY - top) / height) * 100;
+              setCardHoverPos((prev) => ({ ...prev, [index]: { x, y } }));
             };
 
             const handleCardMouseLeave = () => {
               setCardMagnet((prev) => ({ ...prev, [index]: { x: 0, y: 0 } }));
+              setCardHoverPos((prev) => {
+                const next = { ...prev };
+                delete next[index];
+                return next;
+              });
             };
 
+            const hoverPos = cardHoverPos[index];
             const card = (
               <motion.div
                 className={styles.card}
@@ -158,6 +170,17 @@ export default function Resume() {
                   if (e.key === "Enter" || e.key === " ") toggleExpanded(index);
                 }}
               >
+                {hoverPos != null && (
+                  <div
+                    className={styles.cardHoverGlow}
+                    style={{
+                      left: `${hoverPos.x}%`,
+                      top: `${hoverPos.y}%`,
+                    }}
+                    aria-hidden
+                  />
+                )}
+                <div className={styles.cardContent}>
                 <h3 className={styles.company}>{exp.company}</h3>
                 <div className={styles.headerStack}>
                   <span className={styles.role}>{exp.title}</span>
@@ -211,6 +234,7 @@ export default function Resume() {
                     </motion.div>
                   )}
                 </AnimatePresence>
+                </div>
               </motion.div>
             );
 

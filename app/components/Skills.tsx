@@ -132,7 +132,10 @@ export default function Skills() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <h2 className={styles.title}>Skills</h2>
+          <h2 className={styles.title}>
+            Skills
+            <span className={styles.titleAccent} aria-hidden="true" />
+          </h2>
           <p className={styles.subtitle}>
             Technologies and tools I work with - across parallel stacks.
           </p>

@@ -1,7 +1,7 @@
 /* ---------- Skills section tokens ---------- */
 .skills {
   position: relative;
-  --skills-tag-bg: rgba(255, 255, 255, 0.7);
+  --skills-tag-bg: var(--bg-soft);
   --skills-tag-radius: var(--radius-sm);
   --skills-lane-width: 3px;
   --skills-lane-opacity: 0.35;
@@ -49,6 +49,15 @@
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin: 0;
+}
+
+.titleAccent {
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 0.15rem auto 0;
+  border-radius: 2px;
+  background: var(--gradient-accent);
 }
 
 .subtitle {
@@ -247,7 +256,7 @@
   width: 58px;
   height: 58px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-elevated);
   overflow: hidden;
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.1),
@@ -431,6 +440,8 @@
     padding-left: var(--space-sm);
     padding-right: var(--space-sm);
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .skillsList {
@@ -569,6 +580,8 @@
     padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    max-width: 100%;
   }
 
   .tagsRow {
