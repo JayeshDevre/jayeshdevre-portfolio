@@ -1,16 +1,30 @@
 .resume {
-  min-height: 100vh;                 /* full screen */
+  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;           /* vertically center timeline + header */
+  justify-content: center;
   padding: var(--space-xl) 0;
   background-color: var(--bg);
+}
+
+/* Subtle grid background, consistent with other sections */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
 
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
 }
 
 .header {

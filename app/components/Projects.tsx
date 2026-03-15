@@ -117,6 +117,7 @@ export default function Projects() {
 
   return (
     <section className={styles.projects} id="work" ref={ref}>
+      <div className={styles.gridBg} aria-hidden="true" />
       <div className={styles.container}>
         {/* Section heading */}
         <motion.div

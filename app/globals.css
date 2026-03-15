@@ -1,6 +1,5 @@
 /* ============================================
    JAYESH DEVRE — PORTFOLIO
-   Inspired by dennissnellenberg.com
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -9,13 +8,20 @@
 :root {
   --bg: #E1E1E1;
   --bg-dark: #1C1D20;
+  --bg-elevated: #f3f3f3;
+  --bg-soft: #f8f8f8;
+
   --text-primary: #1C1D20;
   --text-secondary: #555555;
   --text-muted: #999999;
   --text-light: #FFFFFF;
+
   --accent: #455CE9;
+  --accent-soft: rgba(69, 92, 233, 0.12);
   --accent-hover: #3a4fd4;
   --border: #C0C0C0;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-strong: rgba(0, 0, 0, 0.16);
 
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -47,6 +53,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--border);
+}
+
+/* ---------- Utility ---------- */
+.relative {
+  position: relative;
 }
 
 html {

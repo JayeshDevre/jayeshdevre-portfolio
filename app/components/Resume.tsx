@@ -98,6 +98,7 @@ export default function Resume() {
 
   return (
     <section className={styles.resume} id="resume" ref={ref}>
+      <div className={styles.gridBg} aria-hidden="true" />
       <div className={styles.container}>
         <div className={styles.header}>
           <motion.h2

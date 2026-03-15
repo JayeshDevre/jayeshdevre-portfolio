@@ -1,5 +1,6 @@
 /* ---------- Skills section tokens ---------- */
 .skills {
+  position: relative;
   --skills-tag-bg: rgba(255, 255, 255, 0.7);
   --skills-tag-radius: var(--radius-sm);
   --skills-lane-width: 3px;
@@ -9,17 +10,30 @@
   flex-direction: column;
   justify-content: center;
   padding: var(--space-xl) 0;
-  background-color: #e8e8e8;
+  background-color: var(--bg);
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(69, 92, 233, 0.06), transparent),
     radial-gradient(ellipse 60% 40% at 100% 50%, rgba(69, 92, 233, 0.04), transparent),
     radial-gradient(ellipse 60% 40% at 0% 50%, rgba(69, 92, 233, 0.04), transparent);
 }
 
+/* Subtle grid (consistent with Hero) */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
 }
 
 .header {

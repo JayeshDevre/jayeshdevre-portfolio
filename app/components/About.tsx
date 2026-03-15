@@ -78,6 +78,7 @@ export default function About() {
 
   return (
     <section className={styles.about} id="about" ref={ref}>
+      <div className={styles.gridBg} aria-hidden="true" />
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Left: statement + social buttons row */}

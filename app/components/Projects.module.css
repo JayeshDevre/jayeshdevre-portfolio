@@ -1,9 +1,22 @@
 .projects {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: var(--space-lg) 0;
+  background-color: var(--bg);
+}
+
+/* Subtle grid background, consistent with Hero */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
 
 .container {
@@ -11,6 +24,8 @@
   max-width: min(1600px, 96vw);
   margin: 0 auto;
   padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
 }
 
 .header {
@@ -67,12 +82,12 @@
   transform: rotateY(180deg);
 }
 
-.cardFront,
+ .cardFront,
 .cardBack {
   position: absolute;
   inset: 0;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-subtle);
   padding: 1.25rem 1.5rem;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   backface-visibility: hidden;
@@ -85,18 +100,18 @@
 }
 
 .cardFront {
-  background: var(--bg);
+  background: var(--bg-elevated);
   transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
 }
 
 .cardWrapper:hover .cardFront {
-  background: rgba(0, 0, 0, 0.02);
-  border-color: rgba(0, 0, 0, 0.18);
+  background: #ffffff;
+  border-color: var(--border-strong);
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
 }
 
 .cardBack {
-  background: var(--bg);
+  background: var(--bg-elevated);
   transform: rotateY(180deg);
   transition: box-shadow 0.25s ease;
 }

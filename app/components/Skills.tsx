@@ -123,7 +123,8 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className={styles.skills} id="skills" ref={ref}>
+    <section className={styles.skills} id="skills" ref={ref}> 
+      <div className={styles.gridBg} aria-hidden="true" />
       <div className={styles.container}>
         <motion.div
           className={styles.header}
