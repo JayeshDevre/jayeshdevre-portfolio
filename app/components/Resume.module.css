@@ -273,6 +273,8 @@
 }
 
 .downloadBtn {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -284,13 +286,31 @@
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
-  transition: var(--transition-smooth);
+  overflow: hidden;
+  will-change: transform;
+  transition: color 0.4s ease, border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.downloadBtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: inherit;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+  z-index: -1;
 }
 
 .downloadBtn:hover {
-  background: var(--text-primary);
-  color: var(--bg);
-  border-color: var(--text-primary);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.downloadBtn:hover::before {
+  transform: scaleY(1);
 }
 
 /* Responsive */

@@ -265,7 +265,12 @@ export default function Resume() {
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <a href="/resume.pdf" className={styles.downloadBtn} target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://drive.google.com/file/d/1oHWgonzyarsVviKqSvbgiOkt7JOJhFXp/view?usp=drive_link"
+            className={styles.downloadBtn}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FiDownload />
             <span>Download Resume</span>
           </a>
