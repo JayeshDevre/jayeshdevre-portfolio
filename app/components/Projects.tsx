@@ -101,7 +101,7 @@ const projects: Project[] = [
     impact:
       "Shortened incident investigation time by centralizing signals and adding clear SLO and release context.",
     tech: ["Next.js", "Grafana", "Prometheus", "Loki"],
-    link: "https://github.com/JayeshDevre",
+    link: "https://github.com/JayeshDevre/Ops-Dashboard",
   },
 ];
 
